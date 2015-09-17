@@ -22,7 +22,7 @@ import contextlib
 # general purpose third party packages
 
 import cython
-assert cython.__version__ == '0.22.1', cython.__version__ 
+assert cython.__version__ == '0.23.1', cython.__version__ 
 
 import numpy as np
 assert np.__version__ == '1.9.2', np.__version__ 
