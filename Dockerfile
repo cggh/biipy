@@ -64,7 +64,7 @@ RUN pip3 install \
 
 RUN apt-get install -y libhdf5-dev
 RUN pip3 install \
-  h5py=="2.5.0" 
+  h5py=="2.4.0" 
 
 RUN pip3 install \
   pyzmq \
