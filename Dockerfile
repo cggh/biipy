@@ -72,6 +72,11 @@ RUN pip3 install \
   tornado \
   jsonschema
 
+RUN apt-get install -y git python3-pyqt5 python3-pyqt4
+
+# ETE3 (likely to change in future)
+RUN pip3 install --upgrade  https://github.com/jhcepas/ete/archive/3.0.zip
+
 EXPOSE 8888
 ADD ./notebook.sh /notebook.sh
 ADD ./test.py /test.py
