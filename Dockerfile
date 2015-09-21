@@ -54,7 +54,7 @@ RUN pip3 install \
   pysamstats=="0.23"
 
 RUN pip3 install \
-  scipy=="0.15.1"
+  scipy=="0.16.0"
 
 RUN apt-get install -y python3-numpy-dbg python3-numpy
 RUN pip3 install \

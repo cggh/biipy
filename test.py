@@ -29,7 +29,7 @@ assert np.__version__ == '1.9.2', np.__version__
 nnz = np.count_nonzero
 
 import scipy
-assert scipy.__version__ == '0.15.1', scipy.__version__ 
+assert scipy.__version__ == '0.16.0', scipy.__version__ 
 import scipy.stats
 import scipy.spatial.distance
 
