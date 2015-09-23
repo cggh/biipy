@@ -25,7 +25,7 @@ import cython
 assert cython.__version__ == '0.23.1', cython.__version__ 
 
 import numpy as np
-assert np.__version__ == '1.9.2', np.__version__ 
+assert np.__version__ == '1.9.3', np.__version__ 
 nnz = np.count_nonzero
 
 import scipy

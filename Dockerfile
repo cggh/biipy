@@ -19,7 +19,7 @@ RUN apt-get install -y libpq-dev
 RUN apt-get install -y python3-pip
 
 RUN pip3 install \
-  numpy \
+  numpy=="1.9.3" \
   scikit-allel \
   cython=="0.23.1" \
   numexpr=="2.4.3" 
