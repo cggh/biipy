@@ -40,22 +40,22 @@ import h5py
 assert h5py.__version__ == '2.5.0', h5py.__version__ 
 
 import tables
-assert tables.__version__ == '3.2.0', tables.__version__ 
+assert tables.__version__ == '3.2.1.1', tables.__version__ 
 
 import bcolz
-assert bcolz.__version__ == '0.9.0', bcolz.__version__ 
+assert bcolz.__version__ == '0.10.0', bcolz.__version__ 
 
 import pandas
 assert pandas.__version__ == '0.16.2', pandas.__version__ 
 
 import IPython
-assert IPython.__version__ == '3.2.0', IPython.__version__ 
+assert IPython.__version__ == '4.0.0', IPython.__version__ 
 # from IPython.html.widgets import interact, interactive
 # from IPython.html import widgets
 from IPython.display import clear_output, display, HTML
 
 import rpy2
-assert rpy2.__version__ == '2.6.0', rpy2.__version__ 
+assert rpy2.__version__ == '2.6.2', rpy2.__version__ 
 import rpy2.robjects as ro
 
 import statsmodels
@@ -70,7 +70,7 @@ import sh
 assert sh.__version__ == '1.11', sh.__version__ 
 
 import sqlalchemy
-assert sqlalchemy.__version__ == '1.0.6', sqlalchemy.__version__ 
+assert sqlalchemy.__version__ == '1.0.8', sqlalchemy.__version__ 
 
 import pymysql
 assert pymysql.__version__ == '0.6.6.None', pymysql.__version__ 

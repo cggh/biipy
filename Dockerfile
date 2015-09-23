@@ -25,15 +25,15 @@ RUN pip3 install \
   numexpr=="2.4.3" 
 
 RUN pip3 install \
-  tables=="3.2.0" \
-  bcolz=="0.9.0" \
+  tables=="3.2.1.1" \
+  bcolz=="0.10.0" \
   pandas=="0.16.2" \
-  IPython=="3.2.0" \
-  rpy2=="2.6.0" \
+  IPython=="4.0.0" \
+  rpy2=="2.6.2" \
   statsmodels=="0.6.1" \
-  sklearn \
+  scikit-learn=="0.16.1" \
   sh=="1.11" \
-  sqlalchemy=="1.0.6" \
+  sqlalchemy=="1.0.8" \
   pymysql=="0.6.6" \
   psycopg2=="2.6.1" \
   petl=="1.0.11" \
@@ -67,18 +67,41 @@ RUN pip3 install \
   h5py=="2.5.0" 
 
 RUN pip3 install \
+  jupyter \
   pyzmq \
   jinja2 \
   tornado \
   jsonschema
 
 RUN apt-get install -y git python3-pyqt5 python3-pyqt4
+RUN apt-get install -y python-numpy python-qt4 python-lxml python3-lxml
 
 # ETE3 (likely to change in future)
+ENV LICENSE accept
+RUN apt-get install -y qt4-qtconfig libqt4-core libqt4-gui 
+RUN apt-get install -y libqt4-dev
+RUN curl -L -O http://downloads.sourceforge.net/project/pyqt/sip/sip-4.16.9/sip-4.16.9.tar.gz
+RUN tar -xvzf sip-4.16.9.tar.gz
+RUN cd sip-4.16.9 && python3 configure.py && make && make install
+
+RUN curl -L -O http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/PyQt-x11-gpl-4.11.4.tar.gz
+RUN tar -xvzf PyQt-x11-gpl-4.11.4.tar.gz
+#RUN cd PyQt-x11-gpl-4.11.4 && \
+#  python3 configure.py --yes --qmake /usr/bin/qmake-qt4 && make && \
+#  make install && \
+#  cp -f PyQt4.api /usr/share/qt4/qsci/api/python/PyQt4.api
+
 RUN pip3 install --upgrade  https://github.com/jhcepas/ete/archive/3.0.zip
+RUN git clone https://github.com/jhcepas/ete.git
+
+# INSTALL APE
+RUN R -e 'install.packages("ape", repos="http://cran.us.r-project.org")'
 
 EXPOSE 8888
 ADD ./notebook.sh /notebook.sh
 ADD ./test.py /test.py
 RUN python3 /test.py
+RUN cd ete/examples/clustering && 2to3 -w clustering_tree.py && python3 clustering_tree.py
+RUN cd ete/examples/clustering && 2to3 -w bubbles_validation.py && python3 bubbles_validation.py
+
 CMD ["/bin/bash", "notebook.sh"]
