@@ -86,22 +86,19 @@ RUN cd sip-4.16.9 && python3 configure.py && make && make install
 
 RUN curl -L -O http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/PyQt-x11-gpl-4.11.4.tar.gz
 RUN tar -xvzf PyQt-x11-gpl-4.11.4.tar.gz
-#RUN cd PyQt-x11-gpl-4.11.4 && \
-#  python3 configure.py --yes --qmake /usr/bin/qmake-qt4 && make && \
-#  make install && \
-#  cp -f PyQt4.api /usr/share/qt4/qsci/api/python/PyQt4.api
-
 RUN pip3 install --upgrade  https://github.com/jhcepas/ete/archive/3.0.zip
 RUN git clone https://github.com/jhcepas/ete.git
 
 # INSTALL APE
 RUN R -e 'install.packages("ape", repos="http://cran.us.r-project.org")'
 
+RUN apt-get install -qqy x11-apps
+ENV DISPLAY :0
+CMD xeyes
+
 EXPOSE 8888
 ADD ./notebook.sh /notebook.sh
 ADD ./test.py /test.py
 RUN python3 /test.py
-RUN cd ete/examples/clustering && 2to3 -w clustering_tree.py && python3 clustering_tree.py
-RUN cd ete/examples/clustering && 2to3 -w bubbles_validation.py && python3 bubbles_validation.py
 
 CMD ["/bin/bash", "notebook.sh"]
