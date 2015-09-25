@@ -80,9 +80,14 @@ RUN pip3 install pysam=="0.8.3"
 RUN pip3 install pysamstats=="0.23"
 RUN pip3 install PyVCF=="0.6.7"
 RUN pip3 install anhima=="0.11.1"
+RUN pip3 install line_profiler=="1.0"
+RUN pip3 install memory_profiler=="0.36"
+RUN pip3 install psutil=="3.2.1"
 RUN pip3 install --upgrade  https://github.com/jhcepas/ete/archive/3.0.zip
 RUN pip3 install vcfnp=="2.1.5"
-RUN pip3 install scikit-allel=="0.16.2" 
+RUN pip3 install toolz=="0.7.4"
+RUN pip3 install dask=="0.7.1"
+RUN pip3 install scikit-allel=="0.16.2"
 
 EXPOSE 8888
 ADD ./notebook.sh /notebook.sh
