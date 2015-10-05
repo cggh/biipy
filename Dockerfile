@@ -88,6 +88,20 @@ RUN pip3 install vcfnp=="2.1.5"
 RUN pip3 install toolz=="0.7.4"
 RUN pip3 install dask=="0.7.1"
 RUN pip3 install scikit-allel=="0.16.2"
+RUN pip3 install pillow=="3.0.0"
+
+# dl basemap
+RUN curl -OL http://sourceforge.net/projects/matplotlib/files/matplotlib-toolkits/basemap-1.0.7/basemap-1.0.7.tar.gz
+RUN tar -xvzf basemap-1.0.7.tar.gz 
+
+# dl GEOS
+RUN curl -O http://download.osgeo.org/geos/geos-3.5.0.tar.bz2
+RUN bzip2 -d geos-3.5.0.tar.bz2 && tar -vxf geos-3.5.0.tar
+ENV GEOS_DIR /usr/local
+RUN cd geos-3.5.0 && ./configure --prefix=$GEOS_DIR && make
+RUN cd geos-3.5.0 && make check && make install && cd ../ && rm -r geos-3.5.0
+RUN ldconfig
+RUN cd basemap-1.0.7 && python3 setup.py install
 
 EXPOSE 8888
 ADD ./notebook.sh /notebook.sh
