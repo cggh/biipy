@@ -122,6 +122,8 @@ assert vcf.VERSION == '0.6.7', vcf.VERSION
 import vcfnp
 assert vcfnp.__version__ == '2.1.5', vcfnp.__version__ 
 
+import intervaltree
+
 import anhima
 assert anhima.__version__ == '0.11.1', anhima.__version__ 
 

@@ -72,6 +72,8 @@ RUN pip3 install psycopg2=="2.6.1"
 RUN pip3 install petl=="1.0.11"
 RUN pip3 install petlx=="1.0.3"
 RUN pip3 install humanize=="0.5.1"
+RUN pip3 install pillow=="3.0.0"
+RUN pip3 install IntervalTree=="2.1.0"
 
 # PYTHON BIO LIBRARIES
 RUN pip3 install biopython=="1.65"
@@ -88,7 +90,6 @@ RUN pip3 install vcfnp=="2.1.5"
 RUN pip3 install toolz=="0.7.4"
 RUN pip3 install dask=="0.7.1"
 RUN pip3 install scikit-allel=="0.16.2"
-RUN pip3 install pillow=="3.0.0"
 
 # dl basemap
 RUN curl -OL http://sourceforge.net/projects/matplotlib/files/matplotlib-toolkits/basemap-1.0.7/basemap-1.0.7.tar.gz
