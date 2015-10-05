@@ -125,6 +125,8 @@ assert vcfnp.__version__ == '2.1.5', vcfnp.__version__
 import anhima
 assert anhima.__version__ == '0.11.1', anhima.__version__ 
 
+from mpl_toolkits.basemap import Basemap
+
 import allel
 # be flexible about version
 print('allel', allel.__version__)
