@@ -4,16 +4,19 @@ Docker image for bioinformatics analysis.
 To run:
 
     docker pull cggh/biipy
-    biipy_version=v0.1
+    version=v0.6
+    image=cggh/biipy:$version
     XSOCK=/tmp/.X11-unix/X0
-    docker run -d \
+    docker run \
+      -it \
+      --rm \
       -v ${HOME}:/home \
       -v /data:/data \
       -v $XSOCK:$XSOCK \
       -p 31778:8888 \
       --name biipy_$version \
-      -e "biipy_version=$biipy_verson" \
-      cggh/biipy:$biipy_version
+      --env "docker_image=$image" \
+      $image
 
 `-v` Maps a volume to the instance. Here we have two flags, one for home directory and one for data.
 
