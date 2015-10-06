@@ -1,43 +1,61 @@
 FROM ubuntu:14.04
 MAINTAINER Nicholas Harding <njh@well.ox.ac.uk>
 
-RUN apt-get update -y
-RUN apt-get upgrade -y
-
-# MISC LIBRARIES
-RUN apt-get install -y libhdf5-dev
-RUN apt-get install -y git
-RUN apt-get install -y qt4-qtconfig libqt4-core libqt4-gui libqt4-dev
-RUN apt-get install -y zlib1g-dev libfreetype6-dev libxft-dev
-RUN apt-get install -qqy x11-apps
+# install various libraries and software
+RUN apt-get update && apt-get install -y \
+    software-properties-common \
+    build-essential \
+    byobu \
+    curl \
+    git \
+    htop \
+    man \
+    unzip \
+    vim \
+    wget \
+    emacs24-nox \
+    qt4-qtconfig \
+    libqt4-core \
+    libqt4-gui \
+    libqt4-dev \
+    zlib1g-dev \
+    libfreetype6-dev \
+    libxft-dev \
+    x11-apps
 ENV DISPLAY :0
-CMD xeyes
 
-# INSTALL R for RPY2
-RUN apt-get install -y software-properties-common
+# install fonts
+RUN apt-add-repository multiverse
+RUN apt-get update && apt-get install -y \
+    fonts-liberation \
+    fonts-dejavu \
+    ttf-ubuntu-font-family
+RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -y install ttf-mscorefonts-installer
+
+# install R for RPY2
 RUN echo "deb http://cran.fhcrc.org/bin/linux/ubuntu trusty/" | tee -a /etc/apt/sources.list > /dev/null
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E084DAB9
 RUN add-apt-repository ppa:marutter/rdev
-RUN apt-get update -y
-RUN apt-get upgrade -y
-RUN apt-get install -y r-base r-base-dev
+RUN apt-get update -y && apt-get install -y r-base r-base-dev
 
-# INSTALL APE
+# install APE
 RUN R -e 'install.packages("ape", repos="http://cran.us.r-project.org")'
 
-# BWA & SAMTOOLS
-RUN apt-get install -y samtools bwa
+# install BWA & SAMTOOLS
+RUN apt-get update && apt-get install -y samtools bwa
 
 # HDF5
-RUN apt-get install -y libhdf5-serial-dev
+RUN apt-get update && apt-get install -y libhdf5-dev libhdf5-serial-dev
 
 # PYTHON 3
-RUN apt-get install -y python3-dev
-RUN apt-get install -y libpq-dev
-RUN apt-get install -y python3-numpy-dbg python3-numpy
-RUN apt-get install -y python3-pyqt5 python3-pyqt4
-RUN apt-get install -y python3-lxml
-RUN apt-get install -y python3-pip
+RUN apt-get update && apt-get install -y \
+    python3-dev \
+    libpq-dev \
+    python3-numpy-dbg python3-numpy \
+    python3-pyqt5 python3-pyqt4 \
+    python3-lxml \
+    python3-pip
 RUN pip3 install -U pip setuptools
 
 # DEPENDENCIES FOR ETE3
@@ -103,6 +121,12 @@ RUN cd geos-3.5.0 && ./configure --prefix=$GEOS_DIR && make
 RUN cd geos-3.5.0 && make check && make install && cd ../ && rm -r geos-3.5.0
 RUN ldconfig
 RUN cd basemap-1.0.7 && python3 setup.py install
+
+# install TreeMix
+RUN apt-get install -y gsl-bin libgsl0-dev libboost-all-dev
+RUN curl -OL https://bitbucket.org/nygcresearch/treemix/downloads/treemix-1.12.tar.gz
+RUN tar zvxf treemix-1.12.tar.gz
+RUN cd treemix-1.12 && ./configure && make && make install
 
 EXPOSE 8888
 ADD ./notebook.sh /notebook.sh
