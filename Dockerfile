@@ -93,22 +93,6 @@ RUN pip3 install humanize=="0.5.1"
 RUN pip3 install pillow=="3.0.0"
 RUN pip3 install IntervalTree=="2.1.0"
 
-# PYTHON BIO LIBRARIES
-RUN pip3 install biopython=="1.65"
-RUN pip3 install pyfasta=="0.5.2"
-RUN pip3 install pysam=="0.8.3"
-RUN pip3 install pysamstats=="0.23"
-RUN pip3 install PyVCF=="0.6.7"
-RUN pip3 install anhima=="0.11.1"
-RUN pip3 install line_profiler=="1.0"
-RUN pip3 install memory_profiler=="0.36"
-RUN pip3 install psutil=="3.2.1"
-RUN pip3 install --upgrade  https://github.com/jhcepas/ete/archive/3.0.zip
-RUN pip3 install vcfnp=="2.1.5"
-RUN pip3 install toolz=="0.7.4"
-RUN pip3 install dask=="0.7.1"
-RUN pip3 install scikit-allel=="0.16.2"
-
 # dl basemap
 RUN curl -OL http://sourceforge.net/projects/matplotlib/files/matplotlib-toolkits/basemap-1.0.7/basemap-1.0.7.tar.gz
 RUN tar -xvzf basemap-1.0.7.tar.gz 
@@ -127,6 +111,22 @@ RUN apt-get install -y gsl-bin libgsl0-dev libboost-all-dev
 RUN curl -OL https://bitbucket.org/nygcresearch/treemix/downloads/treemix-1.12.tar.gz
 RUN tar zvxf treemix-1.12.tar.gz
 RUN cd treemix-1.12 && ./configure && make && make install
+
+# PYTHON BIO LIBRARIES
+RUN pip3 install biopython=="1.65"
+RUN pip3 install pyfasta=="0.5.2"
+RUN pip3 install pysam=="0.8.3"
+RUN pip3 install pysamstats=="0.23"
+RUN pip3 install PyVCF=="0.6.7"
+RUN pip3 install anhima=="0.11.1"
+RUN pip3 install line_profiler=="1.0"
+RUN pip3 install memory_profiler=="0.36"
+RUN pip3 install psutil=="3.2.1"
+RUN pip3 install --upgrade  https://github.com/jhcepas/ete/archive/3.0.zip
+RUN pip3 install vcfnp=="2.1.5"
+RUN pip3 install toolz=="0.7.4"
+RUN pip3 install dask=="0.7.1"
+RUN pip3 install scikit-allel=="0.17.0"
 
 EXPOSE 8888
 ADD ./notebook.sh /notebook.sh
