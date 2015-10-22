@@ -126,7 +126,7 @@ RUN pip3 install --upgrade  https://github.com/jhcepas/ete/archive/3.0.zip
 RUN pip3 install vcfnp=="2.1.5"
 RUN pip3 install toolz=="0.7.4"
 RUN pip3 install dask=="0.7.1"
-RUN pip3 install scikit-allel=="0.17.0"
+RUN pip3 install scikit-allel=="0.18.1"
 
 EXPOSE 8888
 ADD ./notebook.sh /notebook.sh
