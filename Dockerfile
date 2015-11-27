@@ -45,6 +45,9 @@ RUN R -e 'install.packages("ape", repos="http://cran.us.r-project.org")'
 # install BWA & SAMTOOLS
 RUN apt-get update && apt-get install -y samtools bwa
 
+# bust cache
+ADD version version
+
 # HDF5
 RUN apt-get update && apt-get install -y libhdf5-dev libhdf5-serial-dev
 
@@ -56,7 +59,7 @@ RUN apt-get update && apt-get install -y \
     python3-pyqt5 python3-pyqt4 \
     python3-lxml \
     python3-pip
-RUN pip3 install -U pip setuptools
+RUN pip3 install -U pip setuptools wheel
 
 # DEPENDENCIES FOR ETE3
 ENV LICENSE accept
@@ -87,6 +90,7 @@ RUN pip3 install sh=="1.11"
 RUN pip3 install sqlalchemy=="1.0.9"
 RUN pip3 install pymysql=="0.6.7"
 RUN pip3 install psycopg2=="2.6.1"
+RUN apt-get build-dep python3-lxml
 RUN pip3 install lxml=="3.5.0"
 RUN pip3 install openpyxl=="2.3.1"
 RUN pip3 install xlrd=="0.9.4"
@@ -131,7 +135,7 @@ RUN pip3 install --upgrade  https://github.com/jhcepas/ete/archive/3.0.zip
 RUN pip3 install vcfnp=="2.2.0"
 RUN pip3 install toolz=="0.7.4"
 RUN pip3 install dask[complete]=="0.7.5"
-RUN pip3 install scikit-allel=="0.18.1"
+RUN pip3 install scikit-allel=="0.19.0"
 
 EXPOSE 8888
 ADD ./notebook.sh /notebook.sh
