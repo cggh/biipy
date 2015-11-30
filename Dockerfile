@@ -139,7 +139,4 @@ RUN pip3 install scikit-allel=="0.19.0"
 
 EXPOSE 8888
 ADD ./notebook.sh /notebook.sh
-ADD ./test.py /test.py
-RUN python3 /test.py
-
 CMD ["/bin/bash", "notebook.sh"]
