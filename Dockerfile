@@ -90,7 +90,7 @@ RUN pip3 install sh=="1.11"
 RUN pip3 install sqlalchemy=="1.0.9"
 RUN pip3 install pymysql=="0.6.7"
 RUN pip3 install psycopg2=="2.6.1"
-RUN apt-get build-dep python3-lxml
+RUN apt-get update && apt-get build-dep -y python3-lxml
 RUN pip3 install lxml=="3.5.0"
 RUN pip3 install openpyxl=="2.3.1"
 RUN pip3 install xlrd=="0.9.4"
