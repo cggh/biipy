@@ -45,9 +45,6 @@ RUN R -e 'install.packages("ape", repos="http://cran.us.r-project.org")'
 # install BWA & SAMTOOLS
 RUN apt-get update && apt-get install -y samtools bwa
 
-# bust cache
-ADD version version
-
 # HDF5
 RUN apt-get update && apt-get install -y libhdf5-dev libhdf5-serial-dev
 
@@ -134,8 +131,8 @@ RUN pip3 install psutil=="3.3.0"
 RUN pip3 install --upgrade  https://github.com/jhcepas/ete/archive/3.0.zip
 RUN pip3 install vcfnp=="2.2.0"
 RUN pip3 install toolz=="0.7.4"
-RUN pip3 install dask[complete]=="0.7.5"
-RUN pip3 install scikit-allel=="0.19.0"
+RUN pip3 install git+https://github.com/blaze/dask.git@master
+RUN pip3 install scikit-allel=="0.20.0"
 
 EXPOSE 8888
 ADD ./notebook.sh /notebook.sh
