@@ -3,9 +3,9 @@ Docker image for bioinformatics analysis.
 
 To run:
 
-    docker pull cggh/biipy
-    version=v0.6
+    version=v1.0.0
     image=cggh/biipy:$version
+    docker pull $image
     XSOCK=/tmp/.X11-unix/X0
     docker run \
       -it \
@@ -18,6 +18,6 @@ To run:
       --env "docker_image=$image" \
       $image
 
-`-v` Maps a volume to the instance. Here we have two flags, one for home directory and one for data.
+`-v` maps a volume to the instance. Here we have two flags, one for home directory and one for data.
 
-`-p` Maps a port on your system to the default of 8888 for the biipy instance
+`-p` maps a port on your system to the default of 8888 for the biipy instance.
