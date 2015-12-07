@@ -1,10 +1,10 @@
 # biipy
-== About
+## About
 Docker image for *bi*oinformatics *i*n *py*thon.
 
 Includes a number of popular libraries and dependencies for genetic data analysis in ipython. See Dockerfile for details.
 
-== Run
+## Run
 
 To run:
 
@@ -27,7 +27,7 @@ To run:
 
 `-p` maps a port on your system to the default of 8888 for the biipy instance.
 
-=== Release policy
+## Release policy
 
 - Minor changes to Dockerfile that do not add, remove or alter dependencies (e.g., change ordering) get a micro version bump, e.g., 0.1.0 -> 0.1.1.
 
@@ -35,8 +35,7 @@ To run:
 
 - Changing the base image (e.g., to a different version of Ubuntu) gets a major version bump, e.g., 0.1 -> 1.0
 
-=== Further info
+## Further info
 For some information on how to set up on your system, see [here](http://hardingnj.github.io/Using-docker/)
 
-Happy data analysing
-@hardingnj & @alimanfoo
+[@hardingnj](https://github.com/hardingnj) & [@alimanfoo](https://github.com/alimanfoo)
