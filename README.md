@@ -8,7 +8,7 @@ Includes a number of popular libraries and dependencies for genetic data analysi
 
 To run:
 
-    version=v1.0.0
+    version=v1.1.0
     image=cggh/biipy:$version
     docker pull $image
     XSOCK=/tmp/.X11-unix/X0

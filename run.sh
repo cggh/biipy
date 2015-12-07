@@ -2,7 +2,7 @@
 # Docker image for bioinformatics analysis.
 # This is an *example* run script
 
-biipy_version=v1.0.0
+biipy_version=v1.1.0
 docker pull cggh/biipy:${biipy_version}
 
 XSOCK=/tmp/.X11-unix/X0
