@@ -127,6 +127,7 @@ RUN python3.5 -m pip install vcfnp=="2.2.0"
 RUN python3.5 -m pip install toolz=="0.7.4"
 RUN python3.5 -m pip install git+https://github.com/blaze/dask.git@master
 RUN python3.5 -m pip install scikit-allel=="0.20.0"
+RUN python3.5 -m pip install msprime=="0.1.6"
 
 EXPOSE 8888
 ADD ./test.py /test.py
