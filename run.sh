@@ -1,9 +1,12 @@
 # biipy
-#Docker image for bioinformatics analysis.
+# Docker image for bioinformatics analysis.
+# This is an *example* run script
 
-biipy_version=v0.5
+biipy_version=v1.0.0
 docker pull cggh/biipy:${biipy_version}
+
 XSOCK=/tmp/.X11-unix/X0
+
 docker run -d \
   -v ${HOME}:/home \
   -v /data:/data \
