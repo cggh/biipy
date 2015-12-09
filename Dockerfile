@@ -116,7 +116,7 @@ RUN cd treemix-1.12 && ./configure && make && make install
 RUN python3.5 -m pip install biopython=="1.66"
 RUN python3.5 -m pip install pyfasta=="0.5.2"
 RUN python3.5 -m pip install pysam=="0.8.4"
-RUN python3.5 -m pip install pysamstats=="0.24.0"
+RUN python3.5 -m pip install pysamstats=="0.24.1"
 RUN python3.5 -m pip install PyVCF=="0.6.7"
 RUN python3.5 -m pip install anhima=="0.11.1"
 RUN python3.5 -m pip install line_profiler=="1.0"
