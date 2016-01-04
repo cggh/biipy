@@ -2,10 +2,11 @@
 # Docker image for bioinformatics analysis.
 # This is an *example* run script
 
-biipy_version=v1.1.0
+biipy_version=v1.2.0
 docker pull cggh/biipy:${biipy_version}
 
 XSOCK=/tmp/.X11-unix/X0
+uid=$(id -u)
 
 docker run -d \
   -v ${HOME}:/home \
@@ -14,4 +15,5 @@ docker run -d \
   -p 31778:8888 \
   --name biipy_$biipy_version \
   -e "docker_image=$biipy_version" \
+  -u ${uid} \
   cggh/biipy:${biipy_version}
