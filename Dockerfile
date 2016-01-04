@@ -81,6 +81,7 @@ RUN python3.5 -m pip install sh=="1.11"
 RUN python3.5 -m pip install sqlalchemy=="1.0.9"
 RUN python3.5 -m pip install pymysql=="0.6.7"
 RUN python3.5 -m pip install psycopg2=="2.6.1"
+RUN apt-get update
 RUN apt-get build-dep -y python3-lxml
 RUN python3.5 -m pip install lxml=="3.5.0"
 RUN python3.5 -m pip install openpyxl=="2.3.1"
@@ -132,5 +133,8 @@ RUN python3.5 -m pip install msprime=="0.1.6"
 EXPOSE 8888
 ADD ./test.py /test.py
 RUN python3.5 test.py
-ADD ./notebook.sh /notebook.sh
-CMD ["/bin/bash", "notebook.sh"]
+RUN mkdir biipy
+ADD ./notebook.sh /biipy/notebook.sh
+ENV HOME /biipy
+RUN chmod -R 770 /biipy
+CMD ["/bin/bash", "/biipy/notebook.sh"]
