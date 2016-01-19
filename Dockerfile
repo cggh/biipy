@@ -105,8 +105,7 @@ RUN python3.5 -m pip install sh=="1.11"
 RUN python3.5 -m pip install sqlalchemy=="1.0.11"
 RUN python3.5 -m pip install pymysql=="0.7.1"
 RUN python3.5 -m pip install psycopg2=="2.6.1"
-RUN apt-get update
-RUN apt-get build-dep -y python3-lxml
+RUN apt-get update && apt-get build-dep -y python3-lxml
 RUN python3.5 -m pip install lxml=="3.5.0"
 RUN python3.5 -m pip install openpyxl=="2.3.3"
 RUN python3.5 -m pip install xlrd=="0.9.4"
