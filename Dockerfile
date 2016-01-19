@@ -70,7 +70,7 @@ RUN HDF5_DIR=/usr/lib/x86_64-linux-gnu/hdf5/serial python3.5 -m pip install -v t
 RUN python3.5 -m pip install bcolz=="0.12.1"
 RUN python3.5 -m pip install pandas=="0.17.1"
 RUN python3.5 -m pip install notebook=="4.1.0"
-RUN python3.5 -m pip install rpy2=="2.7.4"
+RUN python3.5 -m pip install rpy2=="2.7.7"
 RUN python3.5 -m pip install statsmodels=="0.6.1"
 RUN python3.5 -m pip install scikit-learn=="0.17"
 RUN python3.5 -m pip install matplotlib=="1.5.0"
