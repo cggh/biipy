@@ -121,6 +121,7 @@ RUN python3.5 -m pip install line_profiler=="1.0"
 RUN python3.5 -m pip install memory_profiler=="0.41"
 RUN python3.5 -m pip install toolz=="0.7.4"
 RUN python3.5 -m pip install dask=="0.7.6"
+RUN python3.5 -m pip install zarr=="0.3.0"
 
 # python bio libraries
 RUN python3.5 -m pip install biopython=="1.66"
