@@ -77,7 +77,7 @@ RUN python3.5 -m pip install matplotlib=="1.5.1"
 RUN python3.5 -m pip install seaborn=="0.6.0"
 RUN python3.5 -m pip install matplotlib_venn=="0.11.1"
 RUN python3.5 -m pip install sh=="1.11"
-RUN python3.5 -m pip install sqlalchemy=="1.0.9"
+RUN python3.5 -m pip install sqlalchemy=="1.0.11"
 RUN python3.5 -m pip install pymysql=="0.6.7"
 RUN python3.5 -m pip install psycopg2=="2.6.1"
 RUN apt-get update
