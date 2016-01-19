@@ -90,7 +90,7 @@ RUN python3.5 -m pip install whoosh=="2.7.0"
 RUN python3.5 -m pip install petl=="1.1.0"
 RUN python3.5 -m pip install petlx=="1.0.3"
 RUN python3.5 -m pip install humanize=="0.5.1"
-RUN python3.5 -m pip install pillow=="3.0.0"
+RUN python3.5 -m pip install pillow=="3.1.0"
 RUN python3.5 -m pip install IntervalTree=="2.1.0"
 
 # dl basemap
