@@ -62,7 +62,7 @@ RUN tar -xvzf PyQt-x11-gpl-4.11.4.tar.gz
 RUN apt-get build-dep -y python3-numpy
 RUN apt-get install -y python3-numpy
 RUN python3.5 -m pip install cython=="0.23.4"
-RUN python3.5 -m pip install numpy=="1.10.1"
+RUN python3.5 -m pip install numpy=="1.10.4"
 RUN python3.5 -m pip install scipy=="0.16.1"
 RUN python3.5 -m pip install numexpr=="2.4.6"
 RUN HDF5_DIR=/usr/lib/x86_64-linux-gnu/hdf5/serial python3.5 -m pip install -v h5py=="2.5.0" 
