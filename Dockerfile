@@ -66,8 +66,9 @@ RUN cd treemix-1.12 && ./configure && make && make install
 
 # base python libraries
 RUN python3.5 -m pip install cython=="0.23.4"
+RUN apt-get install -y libopenblas-base libopenblas-dev
 RUN apt-get build-dep -y python3-numpy
-RUN python3.5 -m pip install numpy=="1.10.4"
+RUN python3.5 -m pip -v install numpy=="1.10.4"
 RUN python3.5 -m pip install scipy=="0.16.1"
 RUN python3.5 -m pip install pandas=="0.17.1"
 RUN python3.5 -m pip install matplotlib=="1.5.1"
