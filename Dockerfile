@@ -58,6 +58,12 @@ RUN cd sip-4.16.9 && python3.5 configure.py && make && make install
 RUN curl -L -O http://sourceforge.net/projects/pyqt/files/PyQt4/PyQt-4.11.4/PyQt-x11-gpl-4.11.4.tar.gz
 RUN tar -xvzf PyQt-x11-gpl-4.11.4.tar.gz
 
+# install TreeMix
+RUN apt-get install -y gsl-bin libgsl0-dev libboost-all-dev
+RUN curl -OL https://bitbucket.org/nygcresearch/treemix/downloads/treemix-1.12.tar.gz
+RUN tar zvxf treemix-1.12.tar.gz
+RUN cd treemix-1.12 && ./configure && make && make install
+
 # PYTHON LIBRARIES
 RUN apt-get build-dep -y python3-numpy
 RUN apt-get install -y python3-numpy
@@ -106,12 +112,6 @@ RUN cd geos-3.5.0 && ./configure --prefix=$GEOS_DIR && make
 RUN cd geos-3.5.0 && make check && make install && cd ../ && rm -r geos-3.5.0
 RUN ldconfig
 RUN cd basemap-1.0.7 && python3.5 setup.py install
-
-# install TreeMix
-RUN apt-get install -y gsl-bin libgsl0-dev libboost-all-dev
-RUN curl -OL https://bitbucket.org/nygcresearch/treemix/downloads/treemix-1.12.tar.gz
-RUN tar zvxf treemix-1.12.tar.gz
-RUN cd treemix-1.12 && ./configure && make && make install
 
 # PYTHON BIO LIBRARIES
 RUN python3.5 -m pip install biopython=="1.66"
