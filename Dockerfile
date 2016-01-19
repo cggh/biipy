@@ -83,7 +83,7 @@ RUN python3.5 -m pip install psycopg2=="2.6.1"
 RUN apt-get update
 RUN apt-get build-dep -y python3-lxml
 RUN python3.5 -m pip install lxml=="3.5.0"
-RUN python3.5 -m pip install openpyxl=="2.3.1"
+RUN python3.5 -m pip install openpyxl=="2.3.3"
 RUN python3.5 -m pip install xlrd=="0.9.4"
 RUN python3.5 -m pip install xlwt-future=="0.8.0"
 RUN python3.5 -m pip install whoosh=="2.7.0"
