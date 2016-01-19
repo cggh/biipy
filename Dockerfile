@@ -84,6 +84,11 @@ RUN cd geos-3.5.0 && make check && make install && cd ../ && rm -r geos-3.5.0
 RUN ldconfig
 RUN cd basemap-1.0.7 && python3.5 setup.py install
 
+# install numba
+RUN apt-get install -y llvm-3.6-dev llvm libedit-dev
+RUN python3.5 -m pip install llvmlite=="0.8.0"
+RUN python3.5 -m pip install numba=="0.23.0"
+
 # more python libraries
 RUN python3.5 -m pip install notebook=="4.1.0"
 RUN python3.5 -m pip install numexpr=="2.4.6"
