@@ -120,7 +120,7 @@ RUN python3.5 -m pip install pysamstats=="0.24.1"
 RUN python3.5 -m pip install PyVCF=="0.6.7"
 RUN python3.5 -m pip install anhima=="0.11.1"
 RUN python3.5 -m pip install line_profiler=="1.0"
-RUN python3.5 -m pip install memory_profiler=="0.39"
+RUN python3.5 -m pip install memory_profiler=="0.41"
 RUN python3.5 -m pip install psutil=="3.3.0"
 RUN python3.5 -m pip install --upgrade  https://github.com/jhcepas/ete/archive/3.0.zip
 RUN python3.5 -m pip install vcfnp=="2.2.0"
