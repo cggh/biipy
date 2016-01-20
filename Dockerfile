@@ -46,7 +46,7 @@ RUN apt-get install -y samtools bwa
 RUN apt-get install -y libhdf5-dev libhdf5-serial-dev
 
 # PYTHON 3.5
-RUN apt-get install -y python3.5-dev libpython3.5-dev
+RUN apt-get update && apt-get install -y python3.5-dev libpython3.5-dev
 RUN apt-get install -y libpq-dev python3-pyqt5 python3-pyqt4 python3-pip
 RUN python3.5 -m pip install -U pip setuptools wheel
 
@@ -90,7 +90,8 @@ RUN python3.5 -m pip install llvmlite=="0.8.0"
 RUN python3.5 -m pip install numba=="0.23.0"
 
 # more python libraries
-RUN python3.5 -m pip install notebook=="4.1.0"
+RUN python3.5 -m pip install ipython[all]=="4.0.3"
+RUN python3.5 -m pip install jupyter=="1.0.0"
 RUN python3.5 -m pip install numexpr=="2.4.6"
 RUN HDF5_DIR=/usr/lib/x86_64-linux-gnu/hdf5/serial python3.5 -m pip install -v h5py=="2.5.0" 
 RUN HDF5_DIR=/usr/lib/x86_64-linux-gnu/hdf5/serial python3.5 -m pip install -v tables=="3.2.2"
@@ -139,6 +140,6 @@ ADD ./test.py /test.py
 RUN python3.5 test.py
 RUN mkdir biipy
 ADD ./notebook.sh /biipy/notebook.sh
-ENV HOME /biipy
+ADD ./version /biipy/version
 RUN chmod -R 770 /biipy
 CMD ["/bin/bash", "/biipy/notebook.sh"]
