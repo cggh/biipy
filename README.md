@@ -102,6 +102,15 @@ to the configuration file the next time you run the notebook server.
 - Changing the base image (e.g., to a different version of Ubuntu) gets a major 
   version bump, e.g., 0.1 -> 1.0
 
+## Known issues
+
+- For some reason that we don't yet understand, if you try to run a Jupyter 
+  notebook server by providing the command directly (e.g., 
+  ``biipy_run.sh v1.3.0 jupyter notebook``), this leads to kernel connection 
+  issues. However, there is a bash script baked into the container that works,
+  e.g., ``biipy_run.sh v1.3.0 /biipy/notebook.sh``. This is the default 
+  command in the image so you can just run ``biipy_run.sh v1.3.0`` also.
+
 ## Further info
 
 For some information on how to set up on your system, see [here](http://hardingnj.github.io/Using-docker/)
