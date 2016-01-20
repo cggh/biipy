@@ -2,40 +2,127 @@
 ## About
 Docker image for *bi*oinformatics *i*n *py*thon.
 
-Includes a number of popular libraries and dependencies for genetic data analysis in ipython. See Dockerfile for details.
+Includes a number of popular libraries and dependencies for bioinformatic data 
+analysis in Python. See the [Dockerfile](Dockerfile) for details of which 
+software libraries are included.
 
-## Run
+## Prerequisites
 
-To run:
+Install docker on your host system and make sure you can run docker 
+commands as a non-root user (i.e., add yourself to the docker group).
 
-    version=v1.1.0
-    image=cggh/biipy:$version
-    docker pull $image
-    XSOCK=/tmp/.X11-unix/X0
-    docker run \
-      -it \
-      --rm \
-      -v ${HOME}:/home \
-      -v /data:/data \
-      -v $XSOCK:$XSOCK \
-      -p 31778:8888 \
-      --name biipy_$version \
-      --env "docker_image=$image" \
-      $image
+## Running commands
 
-`-v` maps a volume to the instance. Here we have two flags, one for home directory and one for data.
+To run a single command using the biipy docker image, for convenience a 
+[biipy_run.sh](biipy_run.sh) wrapper script is available from this 
+repository. 
 
-`-p` maps a port on your system to the default of 8888 for the biipy instance.
+For example, save [biipy_run.sh](biipy_run.sh) to a local file on your host 
+system, then run:
+
+    $ ./biipy_run.sh v1.3.0 ipython
+    
+This will run a docker container using the biipy image and execute an IPython 
+shell.
+
+To run a Jupyter notebook server, omit the last argument, e.g.:
+
+    $ ./biipy_run.sh v1.3.0
+
+You will probably want to map more directories from your host filesystem 
+into the container, and may want to change other settings such as the 
+default port mapping for the Jupyter notebook server, in which case you can 
+edit and customise your local copy of the biipy_run.sh script.
+
+If you have a Jupyter notebook server already running and want to also run 
+other commands using the same container, find out the container name:
+
+    $ docker ps
+    CONTAINER ID        IMAGE                    COMMAND                CREATED             STATUS              PORTS                    NAMES
+    fb030ddae198        cggh/biipy:v1.3.0.dev1   "/bin/bash /biipy/no   10 seconds ago      Up 10 seconds       0.0.0.0:8888->8888/tcp   aliman_biipy_v1.3.0.dev1
+
+...then use docker exec, e.g.:
+
+    $ docker exec -it aliman_biipy_v1.3.0.dev1 ipython
+
+## Customising the Jupyter notebook server
+
+By default, biipy will run a Jupyter notebook server with default settings. 
+You can change the Jupyter configuration by creating and editing a 
+configuration file. This is useful, e.g., if you want to secure the notebook
+server with HTTPS and a password (highly recommended).
+
+To generate a default configuration file, do e.g.:
+
+    $ ./biipy_run.sh v1.3.0 jupyter notebook --generate-config
+    Writing default config to: /home/aliman/.jupyter/jupyter_notebook_config.py
+
+You can then edit the configuration file on the host system, assuming you 
+have mapped your home directory into the container. For example, here are the 
+lines I have uncommented and edited in mine:
+
+    $ grep '^[^#]' .jupyter/jupyter_notebook_config.py 
+    c.NotebookApp.allow_origin = '*'
+    c.NotebookApp.certfile = 'mycert.pem'
+    c.NotebookApp.cookie_secret = b'...'
+    c.NotebookApp.enable_mathjax = False
+    c.NotebookApp.ip = '*'
+    c.NotebookApp.open_browser = False
+    c.NotebookApp.password = 'sha1:...'
+    c.NotebookApp.port = 8888
+
+You will want to replace the ``cookie_secret`` and ``password`` variables 
+with something different. To generate an SHA1 hash of your password, run an 
+IPython interactive shell:
+
+    $ ./biipy_run.sh v1.3.0 ipython
+
+...then do:
+
+    In [1]: from notebook.auth import passwd; passwd()
+
+...and copy-paste the SHA1 string into the config file.
+
+Further instructions on setting up HTTPS and other matters relating to 
+securing a notebook server are available from the [Jupyter docs]
+(http://jupyter-notebook.readthedocs.org/en/latest/public_server.html).
+
+If you have mapped your home directory as a volume and are running biipy 
+with your own UID, then Jupyter *should* pick up the changes you have made 
+to the configuration file the next time you run the notebook server.
 
 ## Release policy
 
-- Minor changes to Dockerfile that do not add, remove or alter dependencies (e.g., change ordering) get a micro version bump, e.g., 0.1.0 -> 0.1.1.
+- Minor changes to Dockerfile that do not add, remove or alter dependencies 
+  (e.g., change ordering) get a micro version bump, e.g., 0.1.0 -> 0.1.1.
 
-- Adding, removing or changing (e.g., upgrading) a dependency in the Dockerfile gets a minor version bump, e.g., 0.1 -> 0.2.
+- Adding, removing or changing (e.g., upgrading) a dependency in the Dockerfile 
+  gets a minor version bump, e.g., 0.1 -> 0.2.
 
-- Changing the base image (e.g., to a different version of Ubuntu) gets a major version bump, e.g., 0.1 -> 1.0
+- Changing the base image (e.g., to a different version of Ubuntu) gets a major 
+  version bump, e.g., 0.1 -> 1.0
+
+## Known issues
+
+- For some reason that we don't yet understand, if you try to run a Jupyter 
+  notebook server by providing the command directly (e.g., 
+  ``biipy_run.sh v1.3.0 jupyter notebook``), this leads to kernel connection 
+  issues. However, there is a bash script baked into the container that works,
+  e.g., ``biipy_run.sh v1.3.0 /biipy/notebook.sh``. This is the default 
+  command in the image so you can just run ``biipy_run.sh v1.3.0`` also.
 
 ## Further info
+
 For some information on how to set up on your system, see [here](http://hardingnj.github.io/Using-docker/)
 
 [@hardingnj](https://github.com/hardingnj) & [@alimanfoo](https://github.com/alimanfoo)
+
+## Release notes
+
+### v1.3.0
+
+- Adds bokeh, numba, zarr, openblas.
+- Upgrades numpy (and should now build against openblas), Jupyter notebook, 
+  IPython, rpy2, matplotlib, sqlalchemy, pymysql, openpyxl, pillow, 
+  memory_profiler, psutil, msprime, anhima, dask, ete3.
+  
