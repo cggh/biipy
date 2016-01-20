@@ -6,8 +6,8 @@
 # First script argument should be biipy version, e.g., "v1.3.0".
 VERSION=$1
 
-# Further script arguments (optional) should be command to run plus any
-# arguments.
+# Further script arguments (optional) should be command to run. If not
+# provided, the default command is to run a Jupyter notebook server.
 shift
 
 # This is the docker image we will use.
