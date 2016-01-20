@@ -116,3 +116,13 @@ to the configuration file the next time you run the notebook server.
 For some information on how to set up on your system, see [here](http://hardingnj.github.io/Using-docker/)
 
 [@hardingnj](https://github.com/hardingnj) & [@alimanfoo](https://github.com/alimanfoo)
+
+## Release notes
+
+### v1.3.0
+
+- Adds bokeh, numba, zarr, openblas.
+- Upgrades numpy (and should now build against openblas), Jupyter notebook, 
+  IPython, rpy2, matplotlib, sqlalchemy, pymysql, openpyxl, pillow, 
+  memory_profiler, psutil, msprime, anhima, dask, ete3.
+  
