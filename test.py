@@ -21,10 +21,13 @@ import contextlib
 
 # third party packages
 
+import PyQt4
 import cython
 import numpy as np
 import scipy
+import numba
 import numexpr
+import bokeh
 import h5py
 import tables
 import bcolz
