@@ -47,6 +47,8 @@ RUN apt-get update && \
     libxml2-dev \
     libxslt1-dev \
     libgeos-c1v5 \
+    libgeos-dev \
+    libgeos++-dev \
     python3-pip \
     python3-pyqt4
 
