@@ -5,18 +5,6 @@ set -xeuo pipefail
 cd /biipy
 
 export GEOS_DIR=/usr/local
-curl -O http://download.osgeo.org/geos/geos-3.5.0.tar.bz2
-bzip2 -d geos-3.5.0.tar.bz2
-tar -xf geos-3.5.0.tar
-cd geos-3.5.0
-./configure --prefix=$GEOS_DIR
-make
-make check
-make install
-cd ../
-rm -r geos-3.5.0
-ldconfig
-
 curl -OL http://sourceforge.net/projects/matplotlib/files/matplotlib-toolkits/basemap-1.0.7/basemap-1.0.7.tar.gz
 tar -xzf basemap-1.0.7.tar.gz
 cd basemap-1.0.7

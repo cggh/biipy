@@ -36,7 +36,6 @@ RUN apt-get update && \
     python3.5-dev \
     libpython3.5-dev \
     libpq-dev \
-    python3-pip \
     gsl-bin \
     libgsl0-dev \
     libboost-graph-dev \
@@ -46,7 +45,10 @@ RUN apt-get update && \
     llvm \
     libedit-dev \
     libxml2-dev \
-    libxslt1-dev
+    libxslt1-dev \
+    libgeos-c1v5 \
+    python3-pip \
+    python3-pyqt4
 
 # Upgrade pip etc.
 RUN python3.5 -m pip install -U pip setuptools wheel
@@ -54,15 +56,6 @@ RUN python3.5 -m pip install -U pip setuptools wheel
 # Add custom install scripts
 RUN mkdir /biipy
 ADD ./install /biipy/install
-
-# Install PyQT4 (for ETE3)
-RUN /biipy/install/pyqt4.sh
-
-# Install TreeMix
-RUN /biipy/install/treemix.sh
-
-# Install APE
-RUN R -e 'install.packages("ape", repos="http://cran.us.r-project.org")'
 
 # Install base python libraries
 RUN python3.5 -m pip install --no-cache-dir cython=="0.23.4"
@@ -79,6 +72,12 @@ RUN python3.5 -m pip install --no-cache-dir jupyter=="1.0.0"
 
 # Install basemap
 RUN /biipy/install/basemap.sh
+
+# Install TreeMix
+RUN /biipy/install/treemix.sh
+
+# Install APE
+RUN R -e 'install.packages("ape", repos="http://cran.us.r-project.org")'
 
 # Install more python libraries
 ENV HDF5_DIR /usr/lib/x86_64-linux-gnu/hdf5/serial
