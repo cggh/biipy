@@ -13,6 +13,7 @@ RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula selec
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    sudo \
     curl \
     git \
     htop \
@@ -129,6 +130,7 @@ ENV DISPLAY :0
 EXPOSE 8888
 ADD ./test.py /test.py
 RUN python3.5 test.py
+# TODO ensure this is runnable by all users
 ADD ./notebook.sh /biipy/notebook.sh
 ADD ./version /biipy/version
 RUN chmod -R 770 /biipy
