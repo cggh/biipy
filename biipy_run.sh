@@ -17,12 +17,14 @@ exec docker run \
     --interactive \
     --tty \
     --rm \
-    --user=${UID} \
-    --env="HOME" \
+    --user=${USER} \
+    --env="HOME=${HOME}" \
     --env="DISPLAY" \
-    --env="DOCKER_IMAGE=${DOCKER_IMAGE}" \
     --env="USER=${USER}" \
+    --env="DOCKER_IMAGE=${DOCKER_IMAGE}" \
     --volume="${HOME}:${HOME}:rw" \
+    --volume="/etc/passwd:/etc/passwd:ro" \
+    --volume="/etc/group:/etc/group:ro" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     --workdir="${HOME}" \
     --publish=8888:8888 \
