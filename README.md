@@ -91,6 +91,12 @@ If you have mapped your home directory as a volume and are running biipy
 with your own UID, then Jupyter *should* pick up the changes you have made 
 to the configuration file the next time you run the notebook server.
 
+## Contributing
+
+If there are features you would like to add or other changes you'd like to 
+make, please feel free to [raise an issue on GitHub](https://github.com/cggh/biipy/issues/new) 
+or create a pull request.
+
 ## Release policy
 
 - Minor changes to Dockerfile that do not add, remove or alter dependencies 
