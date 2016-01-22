@@ -18,8 +18,8 @@ exec docker run \
     --tty \
     --rm \
     --user=${USER} \
-    --env="HOME=${HOME}" \
     --env="DISPLAY" \
+    --env="HOME=${HOME}" \
     --env="USER=${USER}" \
     --env="DOCKER_IMAGE=${DOCKER_IMAGE}" \
     --volume="${HOME}:${HOME}:rw" \
