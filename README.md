@@ -8,8 +8,10 @@ software libraries are included.
 
 ## Prerequisites
 
-Install docker on your host system and make sure you can run docker 
-commands as a non-root user (i.e., add yourself to the docker group).
+[Install docker](https://docs.docker.com/engine/installation/) on your host 
+system and make sure you can [run docker commands as a non-root 
+user](https://docs.docker.com/engine/installation/ubuntulinux/#create-a-docker-group) 
+(i.e., add yourself to the docker group).
 
 ## Running commands
 
@@ -44,6 +46,11 @@ other commands using the same container, find out the container name:
 ...then use docker exec, e.g.:
 
     $ docker exec -it aliman_biipy_v1.5.0 ipython
+    
+You can also use this as a quick way to install additional software into a 
+running container if you need to, e.g.:
+
+    $ docker exec -it --user=root aliman_biipy_v1.5.0 pip3 install somepackage
 
 ## Customising the Jupyter notebook server
 
