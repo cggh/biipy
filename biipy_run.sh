@@ -24,6 +24,7 @@ exec docker run \
     --env="DOCKER_IMAGE=${DOCKER_IMAGE}" \
     --volume="${HOME}:${HOME}:rw" \
     --volume="/etc/passwd:/etc/passwd:ro" \
+    --volume="/etc/shadow:/etc/shadow:ro" \
     --volume="/etc/group:/etc/group:ro" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     --workdir="${HOME}" \
