@@ -130,8 +130,7 @@ ENV DISPLAY :0
 EXPOSE 8888
 ADD ./test.py /test.py
 RUN python3.5 test.py
-# TODO ensure this is runnable by all users
 ADD ./notebook.sh /biipy/notebook.sh
 ADD ./version /biipy/version
-RUN chmod -R 770 /biipy
+RUN chmod -R 775 /biipy
 CMD ["/bin/bash", "/biipy/notebook.sh"]
