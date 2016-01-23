@@ -131,10 +131,11 @@ RUN python3.5 -m pip install --no-cache-dir \
     scikit-allel=="0.20.2"
 
 ENV DISPLAY :0
+ENV QT_X11_NO_MITSHM 1
 EXPOSE 8888
-ADD ./test.py /test.py
-RUN python3.5 test.py
-ADD ./notebook.sh /biipy/notebook.sh
+ADD ./test.py /biipy/test.py
+RUN python3.5 /biipy/test.py
+ADD ./scripts /biipy/scripts
 ADD ./version /biipy/version
 RUN chmod -R 775 /biipy
-CMD ["/bin/bash", "/biipy/notebook.sh"]
+CMD /biipy/scripts/notebook.sh
