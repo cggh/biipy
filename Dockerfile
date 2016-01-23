@@ -14,6 +14,7 @@ RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula selec
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     sudo \
+    nano \
     curl \
     git \
     htop \
