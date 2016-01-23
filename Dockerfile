@@ -110,6 +110,7 @@ RUN python3.5 -m pip install --no-cache-dir \
     IntervalTree=="2.1.0" \
     line_profiler=="1.0" \
     memory_profiler=="0.41" \
+    psutil=="3.4.2" \
     toolz=="0.7.4" \
     dask=="0.7.6" \
     zarr=="0.3.0" \
@@ -118,7 +119,9 @@ RUN python3.5 -m pip install --no-cache-dir \
     pysam=="0.8.4" \
     PyVCF=="0.6.7" \
     ete3=="3.0.0b29" \
-    msprime=="0.1.7"
+    msprime=="0.1.7" \
+    py-cpuinfo=="0.1.8" \
+    prettypandas=="0.0.2"
 
 # Install more python libraries
 RUN python3.5 -m pip install --no-cache-dir \
