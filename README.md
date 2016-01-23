@@ -22,14 +22,14 @@ repository.
 For example, save [biipy_run.sh](biipy_run.sh) to a local file on your host 
 system, then run:
 
-    $ ./biipy_run.sh v1.5.0 ipython
+    $ ./biipy_run.sh v1.6.0 ipython
     
 This will run a docker container using the biipy image and execute an IPython 
 shell.
 
 To run a Jupyter notebook server, omit the last argument, e.g.:
 
-    $ ./biipy_run.sh v1.5.0
+    $ ./biipy_run.sh v1.6.0
 
 You will probably want to map more directories from your host filesystem 
 into the container, and may want to change other settings such as the 
@@ -41,16 +41,16 @@ other commands using the same container, find out the container name:
 
     $ docker ps
     CONTAINER ID        IMAGE                    COMMAND                CREATED             STATUS              PORTS                    NAMES
-    fb030ddae198        cggh/biipy:v1.5.0        "/bin/bash /biipy/no   10 seconds ago      Up 10 seconds       0.0.0.0:8888->8888/tcp   aliman_biipy_v1.5.0
+    fb030ddae198        cggh/biipy:v1.6.0        "/bin/bash /biipy/no   10 seconds ago      Up 10 seconds       0.0.0.0:8888->8888/tcp   aliman_biipy_v1.6.0
 
 ...then use docker exec, e.g.:
 
-    $ docker exec -it aliman_biipy_v1.5.0 ipython
+    $ docker exec -it aliman_biipy_v1.6.0 ipython
     
 You can also use this as a quick way to install additional software into a 
 running container if you need to, e.g.:
 
-    $ docker exec -it --user=root aliman_biipy_v1.5.0 pip3 install somepackage
+    $ docker exec -it --user=root aliman_biipy_v1.6.0 pip3 install somepackage
 
 ## Customising the Jupyter notebook server
 
@@ -61,7 +61,7 @@ server with HTTPS and a password (highly recommended).
 
 To generate a default configuration file, do e.g.:
 
-    $ ./biipy_run.sh v1.5.0 jupyter notebook --generate-config
+    $ ./biipy_run.sh v1.6.0 jupyter notebook --generate-config
     Writing default config to: /home/aliman/.jupyter/jupyter_notebook_config.py
 
 You can then edit the configuration file on the host system, assuming you 
@@ -82,7 +82,7 @@ You will want to replace the ``cookie_secret`` and ``password`` variables
 with something different. To generate an SHA1 hash of your password, run an 
 IPython interactive shell:
 
-    $ ./biipy_run.sh v1.5.0 ipython
+    $ ./biipy_run.sh v1.6.0 ipython
 
 ...then do:
 
@@ -119,10 +119,10 @@ or create a pull request.
 
 - For some reason that we don't yet understand, if you try to run a Jupyter 
   notebook server by providing the command directly (e.g., 
-  ``biipy_run.sh v1.5.0 jupyter notebook``), this leads to kernel connection 
+  ``biipy_run.sh v1.6.0 jupyter notebook``), this leads to kernel connection 
   issues. However, there is a bash script baked into the container that works,
-  e.g., ``biipy_run.sh v1.5.0 /biipy/notebook.sh``. This is the default 
-  command in the image so you can just run ``biipy_run.sh v1.5.0`` also.
+  e.g., ``biipy_run.sh v1.6.0 /biipy/scripts/notebook.sh``. This is the default 
+  command in the image so you can just run ``biipy_run.sh v1.6.0`` also.
 
 ## Further info
 
@@ -131,6 +131,13 @@ For some information on how to set up on your system, see [here](http://hardingn
 [@hardingnj](https://github.com/hardingnj) & [@alimanfoo](https://github.com/alimanfoo)
 
 ## Release notes
+
+### v1.6.0
+
+- Add sudo, nano Ubuntu packages.
+- Add psutil, py-cpuinfo, prettypandas Python packages.
+- Minor changes to biipy_run.sh example script to enable better mapping of user 
+  information into containers.
 
 ### v1.5.0
 
