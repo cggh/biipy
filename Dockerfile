@@ -136,6 +136,7 @@ ENV QT_X11_NO_MITSHM 1
 EXPOSE 8888
 ADD ./test.py /biipy/test.py
 RUN python3.5 /biipy/test.py
+ADD ./test.ipynb /biipy/test.ipynb
 ADD ./scripts /biipy/scripts
 ADD ./version /biipy/version
 RUN chmod -R 775 /biipy
