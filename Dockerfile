@@ -121,7 +121,8 @@ RUN python3.5 -m pip install --no-cache-dir \
     ete3=="3.0.0b29" \
     msprime=="0.1.7" \
     py-cpuinfo=="0.1.8" \
-    prettypandas=="0.0.2"
+    prettypandas=="0.0.2" \
+    joblib=="0.9.4"
 
 # Install more python libraries
 RUN python3.5 -m pip install --no-cache-dir \
