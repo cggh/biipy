@@ -135,17 +135,17 @@ For some information on how to set up on your system, see [here](http://hardingn
 ### v1.6.0
 
 - Add sudo, nano Ubuntu packages.
-- Add psutil, py-cpuinfo, prettypandas Python packages.
+- Add psutil, py-cpuinfo, prettypandas, joblib Python packages.
 - Minor changes to biipy_run.sh example script to enable better mapping of user 
   information into containers.
 
 ### v1.5.0
 
-- Reorganise Dockerfile and minimise dependencies installed to reduce image size
+- Reorganise Dockerfile and minimise dependencies installed to reduce image size.
 
 ### v1.4.0
 
-- Upgrade pysamstats
+- Upgrade pysamstats.
 
 ### v1.3.0
 
