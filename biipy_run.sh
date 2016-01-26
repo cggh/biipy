@@ -3,7 +3,7 @@
 # This is an example wrapper script for running commands using the cggh/biipy
 # docker container.
 
-# First script argument should be biipy version, e.g., "v1.5.0".
+# First script argument should be biipy version, e.g., "v1.6.0".
 VERSION=$1
 
 # Further script arguments (optional) should be command to run. If not
@@ -17,12 +17,15 @@ exec docker run \
     --interactive \
     --tty \
     --rm \
-    --user=${UID} \
-    --env="HOME" \
+    --user=${USER} \
     --env="DISPLAY" \
-    --env="DOCKER_IMAGE=${DOCKER_IMAGE}" \
+    --env="HOME=${HOME}" \
     --env="USER=${USER}" \
+    --env="DOCKER_IMAGE=${DOCKER_IMAGE}" \
     --volume="${HOME}:${HOME}:rw" \
+    --volume="/etc/passwd:/etc/passwd:ro" \
+    --volume="/etc/shadow:/etc/shadow:ro" \
+    --volume="/etc/group:/etc/group:ro" \
     --volume="/tmp/.X11-unix:/tmp/.X11-unix:rw" \
     --workdir="${HOME}" \
     --publish=8888:8888 \

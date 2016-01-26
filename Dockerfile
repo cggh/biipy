@@ -13,6 +13,8 @@ RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula selec
 
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
+    sudo \
+    nano \
     curl \
     git \
     htop \
@@ -108,6 +110,7 @@ RUN python3.5 -m pip install --no-cache-dir \
     IntervalTree=="2.1.0" \
     line_profiler=="1.0" \
     memory_profiler=="0.41" \
+    psutil=="3.4.2" \
     toolz=="0.7.4" \
     dask=="0.7.6" \
     zarr=="0.3.0" \
@@ -116,7 +119,10 @@ RUN python3.5 -m pip install --no-cache-dir \
     pysam=="0.8.4" \
     PyVCF=="0.6.7" \
     ete3=="3.0.0b29" \
-    msprime=="0.1.7"
+    msprime=="0.1.7" \
+    py-cpuinfo=="0.1.8" \
+    prettypandas=="0.0.2" \
+    joblib=="0.9.4"
 
 # Install more python libraries
 RUN python3.5 -m pip install --no-cache-dir \
@@ -126,10 +132,12 @@ RUN python3.5 -m pip install --no-cache-dir \
     scikit-allel=="0.20.2"
 
 ENV DISPLAY :0
+ENV QT_X11_NO_MITSHM 1
 EXPOSE 8888
-ADD ./test.py /test.py
-RUN python3.5 test.py
-ADD ./notebook.sh /biipy/notebook.sh
+ADD ./test.py /biipy/test.py
+RUN python3.5 /biipy/test.py
+ADD ./test.ipynb /biipy/test.ipynb
+ADD ./scripts /biipy/scripts
 ADD ./version /biipy/version
-RUN chmod -R 770 /biipy
-CMD ["/bin/bash", "/biipy/notebook.sh"]
+RUN chmod -R 775 /biipy
+CMD /biipy/scripts/notebook.sh
