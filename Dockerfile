@@ -122,7 +122,8 @@ RUN python3.5 -m pip install --no-cache-dir \
     msprime=="0.1.7" \
     py-cpuinfo=="0.1.8" \
     prettypandas=="0.0.2" \
-    joblib=="0.9.4"
+    joblib=="0.9.4" \
+    fastcluster=="1.1.20"
 
 # Install more python libraries
 RUN python3.5 -m pip install --no-cache-dir \
