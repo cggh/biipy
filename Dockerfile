@@ -92,7 +92,7 @@ RUN python3.5 -m pip install --no-cache-dir \
     rpy2=="2.7.7" \
     statsmodels=="0.6.1" \
     scikit-learn=="0.17" \
-    seaborn=="0.6.0" \
+    seaborn=="0.7.0" \
     bokeh=="0.11.0" \
     matplotlib_venn=="0.11.1" \
     sh=="1.11" \
