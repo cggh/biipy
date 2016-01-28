@@ -92,7 +92,7 @@ RUN python3.5 -m pip install --no-cache-dir \
     rpy2=="2.7.7" \
     statsmodels=="0.6.1" \
     scikit-learn=="0.17" \
-    seaborn=="0.6.0" \
+    seaborn=="0.7.0" \
     bokeh=="0.11.0" \
     matplotlib_venn=="0.11.1" \
     sh=="1.11" \
@@ -122,7 +122,8 @@ RUN python3.5 -m pip install --no-cache-dir \
     msprime=="0.1.7" \
     py-cpuinfo=="0.1.8" \
     prettypandas=="0.0.2" \
-    joblib=="0.9.4"
+    joblib=="0.9.4" \
+    fastcluster=="1.1.20"
 
 # Install more python libraries
 RUN python3.5 -m pip install --no-cache-dir \
