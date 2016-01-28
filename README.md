@@ -135,7 +135,8 @@ For some information on how to set up on your system, see [here](http://hardingn
 ### v1.6.0
 
 - Add sudo, nano Ubuntu packages.
-- Add psutil, py-cpuinfo, prettypandas, joblib Python packages.
+- Add psutil, py-cpuinfo, prettypandas, joblib, fastcluster Python packages.
+- Upgrade seaborn.
 - Minor changes to biipy_run.sh example script to enable better mapping of user 
   information into containers.
 
