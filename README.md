@@ -128,8 +128,6 @@ or create a pull request.
 
 For some information on how to set up on your system, see [here](http://hardingnj.github.io/Using-docker/)
 
-[@hardingnj](https://github.com/hardingnj) & [@alimanfoo](https://github.com/alimanfoo)
-
 ## Release notes
 
 ### v1.6.0
@@ -154,3 +152,7 @@ For some information on how to set up on your system, see [here](http://hardingn
 - Upgrade numpy (and should now build against openblas), Jupyter notebook, 
   IPython, rpy2, matplotlib, sqlalchemy, pymysql, openpyxl, pillow, 
   memory_profiler, psutil, msprime, anhima, dask, ete3.
+
+<hr/>
+[@hardingnj](https://github.com/hardingnj) & [@alimanfoo](https://github.com/alimanfoo)
+
