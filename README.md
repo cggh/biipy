@@ -6,6 +6,10 @@ Includes a number of popular libraries and dependencies for bioinformatic data
 analysis in Python. See the [Dockerfile](Dockerfile) for details of which 
 software libraries are included.
 
+Release announcements go to [cggh/pygenomics](https://github.com/cggh/biipy) on 
+Gitter and to the [biovalidation mailing list](https://groups.google.com/forum/#!forum/biovalidation). 
+Feel free to ask questions via [cggh/pygenomics](https://github.com/cggh/biipy).
+
 ## Prerequisites
 
 [Install docker](https://docs.docker.com/engine/installation/) on your host 
