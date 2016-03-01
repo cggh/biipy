@@ -3,7 +3,7 @@
 # This is an example wrapper script for running commands using the cggh/biipy
 # docker container.
 
-# First script argument should be biipy version, e.g., "v1.6.0".
+# First script argument should be biipy version, e.g., "v1.8.0".
 VERSION=$1
 
 # Further script arguments (optional) should be command to run. If not
