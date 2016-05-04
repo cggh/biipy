@@ -57,16 +57,14 @@ RUN apt-get update && \
 # Upgrade pip etc.
 RUN python3.5 -m pip install -U setuptools wheel
 
-# Install base python libraries
-RUN python3.5 -m pip install --no-cache-dir cython=="0.24"
-RUN python3.5 -m pip install --no-cache-dir numpy=="1.11.0"
-RUN python3.5 -m pip install --no-cache-dir lxml=="3.6.0"
-RUN python3.5 -m pip install --no-cache-dir scipy=="0.17.0"
-RUN python3.5 -m pip install --no-cache-dir pandas=="0.18.0"
-RUN python3.5 -m pip install --no-cache-dir matplotlib=="1.5.1"
-RUN python3.5 -m pip install --no-cache-dir numexpr=="2.5.2"
-RUN python3.5 -m pip install --no-cache-dir jupyter=="1.0.0"
+# install miniconda
+RUN curl -LO https://repo.continuum.io/miniconda/Miniconda3-latest-Linux-x86_64.sh
+RUN bash Miniconda3-latest-Linux-x86_64.sh -b -p /miniconda
+ENV PATH /miniconda/bin:$PATH
 
-RUN python3.5 -m pip install --no-cache-dir ipython[all]=="4.2.0"
-RUN python3.5 -m pip install --no-cache-dir llvmlite=="0.10.0"
-RUN python3.5 -m pip install --no-cache-dir numba=="0.25.0"
+RUN conda update -y conda
+RUN pip install -v --no-binary=:all: numpy=="1.11.0" scipy=="0.17.0"
+
+ADD package_list.txt .
+RUN conda create --name science --file package_list.txt --yes
+RUN source activate science

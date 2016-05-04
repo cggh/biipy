@@ -56,7 +56,9 @@ RUN python3.5 -m pip install --no-cache-dir \
     py-cpuinfo=="0.1.8" \
     prettypandas=="0.0.2" \
     joblib=="0.9.4" \
-    fastcluster=="1.1.20"
+    fastcluster=="1.1.20" \
+    scikits.bootstrap=="0.3.2" \
+    simupop=="1.1.7"
 
 # Install more python libraries
 RUN python3.5 -m pip install --no-cache-dir \
