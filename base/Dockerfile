@@ -66,14 +66,18 @@ RUN bash Miniconda3-latest-Linux-x86_64.sh -b -p /miniconda
 ENV PATH /miniconda/bin:$PATH
 
 RUN conda update -y conda
+
 # conda with python 3.5
 RUN conda create --name science --yes python=3.5.1
-RUN source activate science
-RUN pip install -v --no-binary=:all: numpy=="1.11.0" scipy=="0.17.0"
+RUN source activate science && \
+  pip install -v --no-binary=:all: numpy=="1.11.0" scipy=="0.17.0"
+
+RUN source activate science && \
+  conda list
 
 ADD package_list.txt .
-RUN conda install --name science --file package_list.txt --yes
-RUN conda install -n science -c anaconda ipython=4.2.0 --yes
-RUN conda info --envs
+RUN source activate science && \
+  conda install --name science -c anaconda --file package_list.txt --yes
+RUN conda install --name science -c anaconda ipython=4.2.0 --yes
 
 CMD /bin/bash
