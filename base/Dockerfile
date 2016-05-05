@@ -11,6 +11,9 @@ RUN apt-get update && \
 RUN add-apt-repository multiverse
 RUN echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
 
+# This line needed to allow running of source with conda
+RUN rm /bin/sh && ln -s /bin/bash /bin/sh
+
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     sudo \
@@ -63,10 +66,13 @@ RUN bash Miniconda3-latest-Linux-x86_64.sh -b -p /miniconda
 ENV PATH /miniconda/bin:$PATH
 
 RUN conda update -y conda
+# conda with python 3.5
+RUN conda create --name science --yes python=3.5.1
+RUN source activate science
 RUN pip install -v --no-binary=:all: numpy=="1.11.0" scipy=="0.17.0"
 
 ADD package_list.txt .
-RUN conda create --name science --file package_list.txt --yes
+RUN conda install --name science --file package_list.txt --yes
 RUN conda install -n science -c anaconda ipython=4.2.0 --yes
 RUN conda info --envs
 
