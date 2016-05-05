@@ -67,4 +67,7 @@ RUN pip install -v --no-binary=:all: numpy=="1.11.0" scipy=="0.17.0"
 
 ADD package_list.txt .
 RUN conda create --name science --file package_list.txt --yes
-RUN source activate science
+RUN conda install -n science -c anaconda ipython=4.2.0 --yes
+RUN conda info --envs
+
+CMD /bin/bash
