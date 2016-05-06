@@ -26,14 +26,14 @@ repository.
 For example, save [biipy_run.sh](biipy_run.sh) to a local file on your host 
 system, then run:
 
-    $ ./biipy_run.sh v1.7.0 ipython
+    $ ./biipy_run.sh v2.0.0 ipython
     
 This will run a docker container using the biipy image and execute an IPython 
 shell.
 
 To run a Jupyter notebook server, omit the last argument, e.g.:
 
-    $ ./biipy_run.sh v1.7.0
+    $ ./biipy_run.sh v2.0.0
 
 You will probably want to map more directories from your host filesystem 
 into the container, and may want to change other settings such as the 
