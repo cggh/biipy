@@ -134,6 +134,20 @@ For some information on how to set up on your system, see [here](http://hardingn
 
 ## Release notes
 
+
+### v2.0.0
+
+- Major version change
+- Hitching wagon to anaconda/conda management. Slight loss of control on versioning, but gains in stability and build time
+- Several packages now come via the bioconda project
+- uses text files to hold package requirements
+- Several version updates including numpy with MKL, ipython to 4.2.0, cython to 0.24 and others. basemap now packaged by conda
+
+
+### v1.8.0
+
+- Removed simupop to try to get build time down
+
 ### v1.7.0
 
 - Upgraded scikit-allel, bug fix
