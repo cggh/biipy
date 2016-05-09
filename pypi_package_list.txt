@@ -13,7 +13,6 @@ pysamstats == 0.24.2
 rpy2 == 2.7.8 
 scikit-allel==0.20.3
 scikits.bootstrap == 0.3.2 
-simupop == 1.1.7.1 
 vcfnp == 2.2.0 
 xlwt-future == 0.8.0 
 zarr == 0.4.0
