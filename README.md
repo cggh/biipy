@@ -134,6 +134,10 @@ For some information on how to set up on your system, see [here](http://hardingn
 
 ## Release notes
 
+### v2.1.0
+
+- Remove simupop
+
 ### v2.0.1
 
 - Minor formatting
