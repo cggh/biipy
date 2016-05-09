@@ -4,11 +4,11 @@ MAINTAINER Nicholas Harding <njh@well.ox.ac.uk>
 # python modules via conda
 ENV HDF5_DIR /usr/lib/x86_64-linux-gnu/hdf5/serial
 ADD conda_package_list.txt .
-RUN conda install --name science --file conda_package_list.txt --yes
+RUN conda install --yes --name science --file conda_package_list.txt 
 
 # install bwa & samtools from bioconda
-RUN conda create --name bwa --yes bwa=0.7.13
-RUN conda create --name samtools --yes samtools=1.3.1
+RUN conda create --yes --name bwa bwa=0.7.13
+RUN conda create --yes --name samtools samtools=1.3.1
 
 # Add custom install scripts
 RUN mkdir -p /etc/pki/tls/certs
