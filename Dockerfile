@@ -5,6 +5,8 @@ MAINTAINER Nicholas Harding <njh@well.ox.ac.uk>
 ENV HDF5_DIR /usr/lib/x86_64-linux-gnu/hdf5/serial
 ADD conda_package_list.txt .
 RUN conda install --yes --name science --file conda_package_list.txt 
+RUN conda install --yes --name science -c bpeng simupop=1.1.7
+
 
 # install bwa & samtools from bioconda
 RUN conda create --yes --name bwa bwa=0.7.13

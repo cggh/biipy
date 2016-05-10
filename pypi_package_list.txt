@@ -9,9 +9,6 @@ petl == 1.1.0
 prettypandas == 0.0.2 
 py-cpuinfo == 0.1.8 
 pymysql == 0.7.1 
-pysamstats == 0.24.2 
-rpy2 == 2.7.8 
-scikit-allel==0.20.3
 scikits.bootstrap == 0.3.2 
 vcfnp == 2.2.0 
 xlwt-future == 0.8.0 
