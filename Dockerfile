@@ -7,6 +7,8 @@ ADD conda_package_list.txt .
 RUN conda install --yes --name science --file conda_package_list.txt 
 RUN conda install --yes --name science -c bpeng simupop=1.1.7
 
+# Install APE via conda
+RUN conda install --yes -c r --name science r-ape
 
 # install bwa & samtools from bioconda
 RUN conda create --yes --name bwa bwa=0.7.13
@@ -20,9 +22,6 @@ ADD ./install /biipy/install
 
 # Install TreeMix
 RUN /biipy/install/treemix.sh
-
-# Install APE
-RUN R -e 'install.packages("ape", repos="http://cran.us.r-project.org")'
 
 # Install additional python libraries via pip. Versions not on conda.
 # try to do some of these via conda-skeleton/build in future
