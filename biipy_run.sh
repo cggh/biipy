@@ -4,7 +4,7 @@
 # docker container.
 
 # First script argument should be biipy version, e.g., "v1.8.0".
-VERSION=$1
+VERSION=${1:-latest}
 
 # Further script arguments (optional) should be command to run. If not
 # provided, the default command is to run a Jupyter notebook server.
@@ -12,6 +12,7 @@ shift
 
 # This is the docker image we will use.
 DOCKER_IMAGE=cggh/biipy:${VERSION}
+echo "Running ${DOCKER_IMAGE}"
 
 exec docker run \
     --interactive \
