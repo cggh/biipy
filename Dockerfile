@@ -18,10 +18,6 @@ RUN conda create --yes --name samtools samtools=1.3.1
 RUN mkdir -p /etc/pki/tls/certs
 RUN cp /etc/ssl/certs/ca-certificates.crt /etc/pki/tls/certs/ca-bundle.crt
 RUN mkdir /biipy
-ADD ./install /biipy/install
-
-# Install TreeMix
-RUN /biipy/install/treemix.sh
 
 # Install additional python libraries via pip. Versions not on conda.
 # try to do some of these via conda-skeleton/build in future
