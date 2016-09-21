@@ -1,4 +1,4 @@
-FROM cggh/biipy_base:v1.0
+FROM cggh/biipy_base:v1.1
 MAINTAINER Nicholas Harding <njh@well.ox.ac.uk>
 
 # python modules via conda
