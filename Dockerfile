@@ -11,8 +11,9 @@ RUN conda install --yes --name science -c bpeng simupop=1.1.7
 RUN conda install --yes -c r --name science r-ape
 
 # install bwa & samtools from bioconda
-RUN conda create --yes --name bwa bwa=0.7.13
-RUN conda create --yes --name samtools samtools=1.3.1
+RUN conda install --yes --name science bwa=0.7.13
+RUN conda install --yes --name science samtools=1.3.1
+RUN conda install --yes --name science htslib=1.3.1
 
 # Add custom install scripts
 RUN mkdir -p /etc/pki/tls/certs

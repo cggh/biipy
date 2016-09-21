@@ -1,9 +1,7 @@
 anhima == 0.11.2 
 ete3 == 3.0.0b29 
 fastcluster == 1.1.20 
-humanize == 0.5.1 
 IntervalTree == 2.1.0 
-memory_profiler == 0.41 
 openpyxl == 2.3.3 
 petl == 1.1.0 
 prettypandas == 0.0.2 
@@ -12,4 +10,3 @@ pymysql == 0.7.1
 scikits.bootstrap == 0.3.2 
 vcfnp == 2.2.0 
 xlwt-future == 0.8.0 
-zarr == 0.4.0
