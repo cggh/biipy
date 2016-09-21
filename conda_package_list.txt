@@ -4,6 +4,7 @@ biopython=1.66
 bokeh=0.11.1
 cython=0.24
 dask=0.11.0
+hapbin=1.0.0
 humanize=0.5.1 
 h5py=2.6.0
 joblib=0.9.4
