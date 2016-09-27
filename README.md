@@ -1,4 +1,5 @@
 # biipy
+
 ## About
 Docker image for *bi*oinformatics *i*n *py*thon.
 
@@ -134,6 +135,17 @@ For some information on how to set up on your system, see [here](http://hardingn
 
 ## Release notes
 
+### v2.3.0
+
+- Updates to allel
+- Included zarr
+- updates to humanize
+- bwa/samtools/tabix moved to same env.
+
+### v2.2.0
+
+- Readded simupop from bpeng conda repo. 
+
 ### v2.1.0
 
 - Remove simupop
@@ -184,6 +196,6 @@ For some information on how to set up on your system, see [here](http://hardingn
   IPython, rpy2, matplotlib, sqlalchemy, pymysql, openpyxl, pillow, 
   memory_profiler, psutil, msprime, anhima, dask, ete3.
 
-<hr/>
+
 [@hardingnj](https://github.com/hardingnj) & [@alimanfoo](https://github.com/alimanfoo)
 
