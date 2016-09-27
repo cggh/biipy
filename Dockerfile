@@ -2,7 +2,7 @@ FROM cggh/biipy_base:v1.1
 MAINTAINER Nicholas Harding <njh@well.ox.ac.uk>
 
 # Install APE via conda
-RUN conda install --yes -c r --name science r-ape
+RUN conda install --yes -c r --name science r-ape=3.3
 
 # python modules via conda
 ENV HDF5_DIR /usr/lib/x86_64-linux-gnu/hdf5/serial
