@@ -1,16 +1,16 @@
 FROM cggh/biipy_base:v1.1
 MAINTAINER Nicholas Harding <njh@well.ox.ac.uk>
 
+# Install APE via conda
+RUN conda install --yes -c r --name science r-ape
+
 # python modules via conda
 ENV HDF5_DIR /usr/lib/x86_64-linux-gnu/hdf5/serial
 ADD conda_package_list.txt .
 RUN conda install --yes --name science --file conda_package_list.txt 
 RUN conda install --yes --name science -c bpeng simupop=1.1.7
 
-# Install APE via conda
-RUN conda install --yes -c r --name science r-ape
-
-# install bwa & samtools from bioconda
+# install bwa, samtools & tabix from bioconda
 RUN conda install --yes --name science bwa=0.7.13
 RUN conda install --yes --name science samtools=1.3.1
 RUN conda install --yes --name science htslib=1.3.1
