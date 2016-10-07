@@ -135,6 +135,13 @@ For some information on how to set up on your system, see [here](http://hardingn
 
 ## Release notes
 
+### v2.4.0
+
+- Updated versions of large number of packages. Including:
+biopython=1.68, cartopy=0.14.2, cython=0.24.1, gdal=2.1.1, joblib=0.10.2, matplotlib=1.5.3, msprime=0.3.2, numba=0.28.1, numpy=1.11.2, numexpr=2.6.1, pillow=3.4.1, psutil=4.3.1, psycopg2=2.6.2, pysamstats=0.24.2, pytables=3.3.0, pyvcf=0.6.8, scikit-learn=0.18, seaborn=0.7.1, sqlalchemy=1.0.13, toolz=0.8.0, whoosh=2.7.4, xlrd=1.0.0, zarr=2.1.3
+- Added mapping software; gdal and cartopy
+
+
 ### v2.3.0
 
 - Updates to allel
