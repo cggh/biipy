@@ -32,6 +32,7 @@ psutil=5.0.1
 psycopg2=2.6.2
 pyfasta=0.5.2
 pyfastaq=3.14.0
+pymysql=0.7.9
 pysam=0.8.4
 pysamstats=0.24.3 
 pytables=3.3.0
