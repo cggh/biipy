@@ -1,6 +1,6 @@
 basemap=1.0.7
 biopython=1.68
-bokeh=0.11.1
+bokeh=0.12.4
 cartopy=0.14.2
 cython=0.24.1
 dask=0.11.0
