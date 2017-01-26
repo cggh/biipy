@@ -1,5 +1,4 @@
 basemap=1.0.7
-bcolz=1.0.0
 biopython=1.68
 bokeh=0.11.1
 cartopy=0.14.2
