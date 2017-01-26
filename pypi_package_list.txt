@@ -1,5 +1,4 @@
 anhima == 0.11.2 
-openpyxl == 2.3.3 
 petl == 1.1.0 
 prettypandas == 0.0.2 
 py-cpuinfo == 0.1.8 
