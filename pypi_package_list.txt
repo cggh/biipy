@@ -5,3 +5,5 @@ scikits.bootstrap == 0.3.2
 vcfnp == 2.3.0 
 xlwt-future == 0.8.0 
 bcolz == 1.1.0
+hmmlearn == 0.2.0
+
