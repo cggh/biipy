@@ -11,6 +11,7 @@ hapbin=1.0.0
 humanize=0.5.1 
 h5py=2.6.0
 icu=58.1
+intervaltree=2.1.0
 joblib=0.10.3
 jupyter=1.0.0
 line_profiler=2.0
