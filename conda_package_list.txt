@@ -48,4 +48,4 @@ toolz=0.8.2
 cytoolz=0.8.2
 whoosh=2.7.4
 xlrd=1.0.0
-zarr=2.1.3
+zarr=2.1.4
