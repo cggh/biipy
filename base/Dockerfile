@@ -63,8 +63,8 @@ ENV PATH /anaconda/bin:$PATH
 
 RUN conda update -y conda
 
-# conda with python 3.5.1
-RUN conda create --name science --yes python=3.5.1
+# conda with python 3.5.2
+RUN conda create --name science --yes python=3.5.2
 
 RUN conda config --add channels r
 RUN conda config --add channels bioconda
