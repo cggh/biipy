@@ -28,3 +28,6 @@ script:
   # run scikit-allel test suite to verify dependencies are good
   - export PYTHONHASHSEED=42
   - nosetests allel --exclude=from_gff3
+  # run rpy2 test suite
+  - python -m rpy2.tests
+
