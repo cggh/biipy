@@ -25,6 +25,6 @@ install:
   - pip install --no-cache-dir -r pypi_package_list.txt
 
 script:
-  # run scikit-allel test suite to verify dependencies are OK
+  # run scikit-allel test suite to verify dependencies are good
   - export PYTHONHASHSEED=42
   - nosetests allel -v --exclude=from_gff3
