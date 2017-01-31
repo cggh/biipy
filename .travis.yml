@@ -20,11 +20,11 @@ install:
   - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION
   - source activate test-environment
   - conda clean --lock
-  - conda install --yes gcc
-  - conda install --yes --file=conda_package_list.txt
+  - conda install -q --yes gcc
+  - conda install -q --yes --file=conda_package_list.txt
   - pip install --no-cache-dir -r pypi_package_list.txt
 
 script:
   # run scikit-allel test suite to verify dependencies are good
   - export PYTHONHASHSEED=42
-  - nosetests allel -v --exclude=from_gff3
+  - nosetests allel --exclude=from_gff3
