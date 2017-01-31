@@ -135,6 +135,53 @@ For some information on how to set up on your system, see [here](http://hardingn
 
 ## Release notes
 
+### v2.5.0
+
+Significant numbers of package upgrades
+- try to reduce log size for travis
+- [CI skip] use Python 3.5.2
+- trivial change to trigger CI
+- add travis CI support
+- upgrade numexpr
+- upgrade scikit-allel, downgrade dask
+- upgrade zarr
+- solve conda conflicts
+- add hmmlearn
+- upgrade vcfnp
+- upgrade pymysql, install via conda
+- upgrade py-cpuinfo
+- upgrade prettypandas
+- upgrade petl, install via conda
+- upgrade openpyxl, install via conda
+- install intervaltree via conda
+- upgrade fastcluster, install via conda
+- add scipy explicitly
+- upgrade ete3, install via conda
+- add cytoolz
+- upgrade toolz
+- upgrade sqlalchemy
+- upgrade scikit-learn
+- upgrade rpy2
+- upgrade pysamstats
+- add pyfastaq
+- upgrade psutil
+- upgrade pillow
+- upgrade pandas
+- upgrade numpy
+- upgrade numba
+- upgrade msprime
+- upgrade matplotlib-venn
+- upgrade matplotlib
+- upgrade line_profiler
+- upgrade joblib
+- upgrade icu
+- upgrade gdal
+- upgrade dask
+- upgrade cython
+- upgrade cartopy
+- upgrade bokeh
+- upgrade bcolz and source via pip because 1.1.0 not available via conda 
+
 ### v2.4.0
 
 - Updated versions of large number of packages. Including:
