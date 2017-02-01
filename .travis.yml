@@ -13,9 +13,9 @@ install:
   - hash -r
   - conda config --set always_yes yes --set changeps1 no
   - conda update -q conda
-  - conda config --add channels r
   - conda config --add channels bioconda
   - conda config --add channels conda-forge
+  - conda config --add channels r
   - conda info -a
   - conda create -q -n test-environment python=$TRAVIS_PYTHON_VERSION
   - source activate test-environment
@@ -28,3 +28,6 @@ script:
   # run scikit-allel test suite to verify dependencies are good
   - export PYTHONHASHSEED=42
   - nosetests allel --exclude=from_gff3
+  # run rpy2 test suite
+  - python -m rpy2.tests
+
